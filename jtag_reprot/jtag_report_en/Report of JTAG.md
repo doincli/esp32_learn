@@ -216,7 +216,7 @@ In the code you have modified, you can see that the value of "i" is constantly c
    idf.py gdbtui
    ```
 
-   ![](Report of JTAG.assets/unknown_002-1686122837217-35-1686129573914-1.png)
+   ![image-20230607172156430](Report of JTAG.assets/image-20230607172156430.png)
 
 GDB related commands and examples as follow:
 
