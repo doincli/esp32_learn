@@ -201,6 +201,7 @@ In the code you have modified, you can see that the value of "i" is constantly c
 
    If it have error as follow:
    ![image-20230607145556777](Report of JTAG.assets/image-20230607145556777-1686122824052-29.png)
+
    use  lsof -i:6666  View related processes and close it，as follow：
 
    ![image-20230607145700537](Report of JTAG.assets/image-20230607145700537-1686122827874-31.png)
@@ -215,7 +216,7 @@ In the code you have modified, you can see that the value of "i" is constantly c
    idf.py gdbtui
    ```
 
-   ![](Report of JTAG.assets/unknown_002-1686122837217-35.png)
+   ![](Report of JTAG.assets/unknown_002-1686122837217-35-1686129573914-1.png)
 
 GDB related commands and examples as follow:
 
