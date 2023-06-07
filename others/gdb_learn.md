@@ -128,7 +128,7 @@ set secheduler-locking off|on|step  设置运行的线程
 
 设置断点，在第65 83 89行设置断点
 
-![image-20230607150309682](/home/liboyu/桌面/report/others/gdb_learn.assets/image-20230607150309682.png)
+![image-20230607150309682](gdb_learn.assets/image-20230607150309682-1686122583784-1.png)
 
 
 
@@ -136,7 +136,7 @@ set secheduler-locking off|on|step  设置运行的线程
 
 可以使用info breakpoint查看设置的断点
 
-![image-20230607150543238](/home/liboyu/桌面/report/others/gdb_learn.assets/image-20230607150543238.png)
+![image-20230607150543238](gdb_learn.assets/image-20230607150543238-1686122593459-3.png)
 
 
 
@@ -144,7 +144,7 @@ set secheduler-locking off|on|step  设置运行的线程
 
 同样可以使用delete 删除相关断点
 
-![image-20230607150640369](/home/liboyu/桌面/report/others/gdb_learn.assets/image-20230607150640369.png)
+![image-20230607150640369](gdb_learn.assets/image-20230607150640369-1686122598116-5.png)
 
 
 
@@ -197,6 +197,6 @@ g表示八字节
 */
 ```
 
-![image-20230607151004922](/home/liboyu/桌面/report/others/gdb_learn.assets/image-20230607151004922.png)
+![image-20230607151004922](gdb_learn.assets/image-20230607151004922-1686122603422-7.png)
 
-![image-20230607151216235](/home/liboyu/桌面/report/others/gdb_learn.assets/image-20230607151216235.png)
+![image-20230607151216235](gdb_learn.assets/image-20230607151216235-1686122608494-9.png)
