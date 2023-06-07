@@ -220,6 +220,28 @@ can see the result as follow：
 
    ![image-20230607145731686](Report of JTAG.assets/image-20230607145731686-1686122831832-33.png)
 
+   Configuration of OpenOCD for Specific Target:
+
+   There are several kinds of OpenOCD configuration files (`*.cfg`). All configuration files are located in subdirectories of `share/openocd/scripts` directory of OpenOCD distribution (or `tcl/scripts` directory of the source repository). For the purposes of this guide, the most important ones are `board`, `interface` and `target`.
+
+   - `interface` configuration files describe the JTAG adapter. Examples of JTAG adapters are ESP-Prog and J-Link.
+   - `target` configuration files describe specific chips, or in some cases, modules.
+   - `board` configuration files are provided for development boards with a built-in JTAG adapter. Such files include an `interface` configuration file to choose the adapter, and `target` configuration file to choose the chip/module.
+
+   The following configuration files are available for ESP32-S3:
+
+   | Name                                  | Description                                                  |
+   | ------------------------------------- | ------------------------------------------------------------ |
+   | `board/esp32s3-builtin.cfg`           | Board configuration file for ESP32-S3 for debugging via builtin USB JTAG, includes target and adapter configuration. |
+   | `board/esp32s3-ftdi.cfg`              | Board configuration file for ESP32-S3 for via externally connected FTDI-based probe like ESP-Prog, includes target and adapter configuration. |
+   | `target/esp32s3.cfg`                  | ESP32-S3 target configuration file. Can be used together with one of the `interface/` configuration files. |
+   | `interface/ftdi/esp_usb_jtag.cfg`     | JTAG adapter configuration file for ESP32-S3 builtin USB JTAG. |
+   | `interface/ftdi/esp32_devkitj_v1.cfg` | JTAG adapter configuration file for ESP-Prog debug adapter board. |
+
+   If you are using one of the boards which have a pre-defined configuration file, you only need to pass one `-f` argument to OpenOCD, specifying that file.
+
+   If you are using a board not listed here, you need to specify both the interface configuration file and target configuration file.
+
 5. Begin gdb 
 
    ```

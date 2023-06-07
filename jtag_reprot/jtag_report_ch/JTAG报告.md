@@ -158,7 +158,7 @@ i++
 
 
 
-设置条件断点
+#### 设置条件断点
 
 在打断点处，右键后输入相关的条件
 
@@ -212,7 +212,8 @@ i++
 4. 打开openocd
 
    ```
-   idf.py openocd
+   //设置相关参数并打开
+   openocd -f board/esp32s3-builtin.cfg
    ```
 
    如果端口占用报错，如图
@@ -224,6 +225,27 @@ i++
    正确打开openocd后终端输入：
 
    ![image-20230607145731686](JTAG报告.assets/image-20230607145731686-1686122831832-33.png)
+
+   如何选择配置文件：
+
+   OpenOCD 有很多种配置文件（`*.cfg`），它们位于 OpenOCD 安装目录的 `share/openocd/scripts` 子目录中（或者在 OpenOCD 源码目录的 `tcl/scripts` 目录中）。本文主要介绍 `board`，`interface` 和 `target` 这三个目录。
+
+   - `interface` 包含了例如 ESPProg、J-Link 这些 JTAG 适配器的配置文件。
+   - `target` 包含了目标芯片或者模组的配置文件。
+   - `board` 包含有内置了 JTAG 适配器的开发板的配置文件，这些配置文件会根据实际的 JTAG 适配器和芯片/模组来导入某个具体的 `interface` 和 `target` 的配置。
+
+   ESP32-S3 可以使用的配置文件如下表所示:
+
+   | 名称                              | 描述                                                         |
+   | --------------------------------- | ------------------------------------------------------------ |
+   | `board/esp32s3-builtin.cfg`       | ESP32-S3 系列开发板的配置文件，用于通过内置的 USB JTAG 进行调试，包括 ESP32-S3 目标配置和适配器配置。 |
+   | `board/esp32s3-ftdi.cfg`          | ESP32-S3 系列开发板的配置文件，用于通过外部连接的基于 FTDI 的探头，如 ESP-Prog，包括 ESP32-S3 目标配置和适配器配置。 |
+   | `target/esp32s3.cfg`              | ESP32-S3 目标配置文件，可以和某个 `interface/` 下的配置文件一同使用 |
+   | `interface/ftdi/esp_usb_jtag.cfg` | 适用于 ESP32-S3 的 JTAG 适配器配置文件。                     |
+
+   如果你使用的开发板已经有了一份预定义好的配置文件，你只须将该文件通过 `-f` 参数告诉 OpenOCD。
+
+   如果你的开发板不在上述列表中，你需要使用多个 `-f` 参数来告诉 OpenOCD 你选择的 `interface` 和 `target` 配置文件。
 
 5. idf.py开始调试gdb
 
