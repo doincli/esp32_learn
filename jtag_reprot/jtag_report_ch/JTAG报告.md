@@ -1,14 +1,4 @@
-# JTAG报告
-
-## 引言：
-
-由于缺乏合适的工具，简便的编程方式也会给程序的调试带来困难，比如找出由两个线程引起的错误，并且这两个线程在单独的 CPU 核上同时运行，那么仅凭 `printf` 语句会花费很长时间来定位该错误。调试此类问题更好(往往也更快)的方法是使用调试器，将其连接到处理器的调试端口。
-
-## JTAG工作原理：
-
-**以ESP32S3举例：**
-
-![ESP32-S3-DevKitC-1 - 正面](https://docs.espressif.com/projects/esp-idf/zh_CN/latest/esp32s3/_images/ESP32-S3-DevKitC-1_v2-annotated-photo.png)
+# JTAG使用手册
 
 ## 准备工作：
 
@@ -42,6 +32,8 @@ JTAG需要使用**SP32-S3 USB 接口** 连接开发板与电脑
 
 
 
+
+
 ### 软件（详情见以下教程）
 
 1. vscode安装：https://github.com/espressif/vscode-esp-idf-extension/blob/master/docs/tutorial/install.md
@@ -51,72 +43,98 @@ JTAG需要使用**SP32-S3 USB 接口** 连接开发板与电脑
 
 ## JTAG调试设置(vscode版本)：
 
-### 安装 OpenOCD
-
-如果已经完成了软件的安装，那么openocd已经默认安装完毕，可以输入如下命令：
-
-```shell
-	openocd --version
-```
-
-终端会输出：
-
-```shell
-Open On-Chip Debugger 0.11.0
-Licensed under GNU GPL v2
-For bug reports, read
-	http://openocd.org/doc/doxygen/bugs.html
-
-```
+我们使用官网提供的例程，get-starting/blink作为示例程序
 
 ### 相关的设置
 
-#### 设置接口：
+#### 选择project
 
-![](/home/liboyu/usb.png)
+打开程序所在的文件夹，当有多个文件的时候，将想要调试的文件添加到工作区，（shift + ctrl +p 打开命令面板输入 add folder to workspace 添加文件）
+
+![image-20230607142008324](/home/liboyu/.config/Typora/typora-user-images/image-20230607142008324.png)
+
+#### 设置下载的端口：
 
 选择/dev/ttyACM0接口
+
+![image-20230607142411662](/home/liboyu/.config/Typora/typora-user-images/image-20230607142411662.png)
 
 
 
 #### 设置芯片类型
 
-First the user should select an Espressif target (esp32, esp32s2, etc.) with the **ESP-IDF: Set Espressif device target** command. Default is `esp32` and the one used in this tutorial.
+选择芯片类型(esp32s3)以及下载方式(USB-JTAG))
+
+![image-20230607142652187](/home/liboyu/.config/Typora/typora-user-images/image-20230607142652187.png)
+
+![image-20230607142802721](/home/liboyu/.config/Typora/typora-user-images/image-20230607142802721.png)
+
+
+
+#### 选择当前文件夹
+
+![image-20230607142943686](/home/liboyu/.config/Typora/typora-user-images/image-20230607142943686.png)
+
+
+
+#### 选择活动的project
+
+![image-20230607143149308](/home/liboyu/.config/Typora/typora-user-images/image-20230607143149308.png)
 
 
 
 #### 编译文件并且下载
 
-![](/home/liboyu/图片/001.png)
+编译文件，编译完毕后终端打印信息如下：
 
-![](/home/liboyu/图片/003.png)
-
-
-
-#### JTAG调试
-
-摁F5或者底部的Launch
-
-![](/home/liboyu/图片/002.png)
-
-右边显示相关的变量以及寄存器还有堆栈
+![image-20230607143324601](/home/liboyu/.config/Typora/typora-user-images/image-20230607143324601.png)
 
 
 
+下载文件到板子上，下载后的终端输出信息如下（如果提示打开openocd 点击yes）：
+
+![image-20230607143516719](/home/liboyu/.config/Typora/typora-user-images/image-20230607143516719.png)
 
 
-## vscode版本（示例）：
 
-1. 新建一个工程 blink为例，![](JTAG报告.assets/example_1.png)
-2. 选择端口ESP-IDF: Select port to use (COM, tty, usbserial)选择ESP32S3、芯片类型ESP-IDF: Set Espressif device target（JTAG）、下载类型 ESP-IDF: Select Flash Method（JTAG）
-3. 编译文件  并且刷新flash![](JTAG报告.assets/example_2.png)
-4. 开始调试F5
+## JTAG调试
 
-![](JTAG报告.assets/example_3.png)
+为了进一步介绍jtag的功能 我们简单修改一下例程代码。
 
-可以观察堆栈、断点等问题
+在第83行加入
 
-https://github.com/espressif/vscode-esp-idf-extension/blob/1bf71f1f54c66cefc3f0e3362cc5c9e724f2cb9b/docs/tutorial/debugging.md
+```c
+int i = 10;
+```
+
+在第85行加入
+
+```c
+i++
+```
+
+修改后的代码截图：
+
+![image-20230607143833779](/home/liboyu/.config/Typora/typora-user-images/image-20230607143833779.png)
+
+
+
+代码修改完毕后，按F5或者底部的Launch即可开启Jtag调试
+
+![image-20230607144251113](/home/liboyu/.config/Typora/typora-user-images/image-20230607144251113.png)
+
+由图可知，jtag调试主要由四个部分组成，分别是变量，监视，调用堆栈以及断点
+
+
+
+- 变量：代码段中的变量的值
+- 监视：可以手动设置想要查看的信号
+- 调用堆栈：可以观察代码中的堆栈情况
+- 断点：可以设置断点 
+
+
+
+
 
 **TIP：使用命令方法：**
 
@@ -130,13 +148,13 @@ https://github.com/espressif/vscode-esp-idf-extension/blob/1bf71f1f54c66cefc3f0e
 
 
 
-使用方法：
+如果想同时观察打印信息，可以将监视和调试一块使用
 
+监视和调试一块使用  先打开监视窗口 然后F5开始调试，效果如下
 
+![image-20230607144808502](/home/liboyu/.config/Typora/typora-user-images/image-20230607144808502.png)
 
-监视和调试一块使用  先打开监视窗口 然后开始调试
-
-![](JTAG报告.assets/example_4.png)
+在我们自己修改的代码中，我们可以看到i的值在不断变化
 
 
 
@@ -150,23 +168,50 @@ https://github.com/espressif/vscode-esp-idf-extension/blob/1bf71f1f54c66cefc3f0e
    . $HOME/esp/esp-idf/export.sh
    ```
 
+   终端打印如下信息：![image-20230607145111364](/home/liboyu/.config/Typora/typora-user-images/image-20230607145111364.png)
+
 2. 设置相关芯片，编译相关文件 然后下载进去
+
+   设置芯片类型
 
    ```shell
    idf.py set-target esp32s3
+   ```
+
+   <img src="/home/liboyu/.config/Typora/typora-user-images/image-20230607145323335.png" alt="image-20230607145323335" style="zoom:150%;" />编译程序：
+
+   ```
    idf.py build
    ```
 
+   ![image-20230607145354357](/home/liboyu/.config/Typora/typora-user-images/image-20230607145354357.png)
+
 3. 将编译的文件下载进芯片
 
-   ```
-   有两种方法，官网给的没有跑通，配置不上，可以让他自动配置
+   ```c
+   //直接让其自动匹配
    idf.py flash
    ```
 
-   
+   ![image-20230607145444150](/home/liboyu/.config/Typora/typora-user-images/image-20230607145444150.png)
 
-4. idf.py开始调试gdb
+4. 打开openocd
+
+   ```
+   idf.py openocd
+   ```
+
+   如果端口占用报错，如图
+   ![image-20230607145556777](/home/liboyu/.config/Typora/typora-user-images/image-20230607145556777.png)
+   输入lsof -i:6666 查看相关进程，并且关闭，如图所示：
+
+   ![image-20230607145700537](/home/liboyu/.config/Typora/typora-user-images/image-20230607145700537.png)
+
+   正确打开openocd后终端输入：
+
+   ![image-20230607145731686](/home/liboyu/.config/Typora/typora-user-images/image-20230607145731686.png)
+
+5. idf.py开始调试gdb
 
    ```
    idf.py gdbtui
@@ -175,3 +220,5 @@ https://github.com/espressif/vscode-esp-idf-extension/blob/1bf71f1f54c66cefc3f0e
    ![](JTAG报告.assets/unknown_002.png)
 
 这里就正常打断点就好了，然后和正常的GDB调试
+
+相关命令及示例请看：

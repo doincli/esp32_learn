@@ -114,3 +114,89 @@ thread <ID>   切换线程
 set secheduler-locking off|on|step  设置运行的线程
 ```
 
+
+
+
+
+## esp32_jtag 示例
+
+我们用jtag章节中的代码作为示例，主要演示设置断点，观察变量，观察堆栈区等操作
+
+### 断点演示
+
+#### 设置断点
+
+设置断点，在第65 83 89行设置断点
+
+![image-20230607150309682](/home/liboyu/.config/Typora/typora-user-images/image-20230607150309682.png)
+
+
+
+#### 查看断点
+
+可以使用info breakpoint查看设置的断点
+
+![image-20230607150543238](/home/liboyu/.config/Typora/typora-user-images/image-20230607150543238.png)
+
+
+
+#### 删除断点
+
+同样可以使用delete 删除相关断点
+
+![image-20230607150640369](/home/liboyu/.config/Typora/typora-user-images/image-20230607150640369.png)
+
+
+
+### 运行，查看变量和堆栈区
+
+使用c来运行程序到断点处
+
+#### 查看变量
+
+使用以下命令来观察相关变量
+
+```
+display + 变量名 
+```
+
+使用以下命令来观察堆栈
+
+```
+bt
+```
+
+使用以下命令来观察内存
+
+```c
+x /20xh 0x1000000
+
+/*
+格式: x /nfu
+x 是 examine 的缩写，意思是检查。
+n表示要显示的内存单元的个数，比如：20
+
+f表示显示方式, 可取如下值：
+x 按十六进制格式显示变量。
+d 按十进制格式显示变量。
+u 按十进制格式显示无符号整型。
+o 按八进制格式显示变量。
+t 按二进制格式显示变量。
+a 按十六进制格式显示变量。
+i 指令地址格式
+c 按字符格式显示变量。
+f 按浮点数格式显示变量。
+
+
+u表示一个地址单元的长度：
+b表示单字节，
+h表示双字节，
+w表示四字节，
+g表示八字节
+
+*/
+```
+
+![image-20230607151004922](/home/liboyu/.config/Typora/typora-user-images/image-20230607151004922.png)
+
+![image-20230607151216235](/home/liboyu/.config/Typora/typora-user-images/image-20230607151216235.png)
