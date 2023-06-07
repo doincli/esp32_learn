@@ -1,26 +1,22 @@
-# Report of JTAG
+# JTAG User Manual
 
-## Introduction：
+## Preparation:
 
-Figuring out a bug that is caused by two threads, running even simultaneously on two different CPU cores, can take a long time when all you have are printf () statements. A better (and in many cases quicker) way to debug such problems is by using a debugger, connected to the processors over a debug port. This is what JTAG does.
+### Hardware:
 
+#### Required Hardware
 
-
-## Preparation：
-
-### Hardware：
-
-- An **ESP32S3** board.
-- **USB cable** - USB A / micro USB B.
-- **Computer** running Windows, Linux, or macOS.
+- ESP32-S3-DevKitC-1
+- USB 2.0 cable (Standard Type A to Micro-B)
+- Computer (Windows, Linux, or macOS)
 
 
 
-#### hardware settings
+#### Hardware settings
 
 Using the ESP32-S3-DevKitC-1 development board as an example:
 
-The development board features two USB interfaces,One is the USB Port, and the other is the USB-to-UART Port.
+The development board has two USB interfaces, one is the USB Port, and the other is the USB-to-UART Port.
 
 
 
@@ -28,130 +24,199 @@ The development board features two USB interfaces,One is the USB Port, and the o
 
 ![ESP32-S3-DevKitC-1 - 正面](Report of JTAG.assets/ESP32-S3-DevKitC-1_v2-annotated-photo.png)
 
-**USB Port** ：ESP32-S3 full-speed USB OTG interface, compliant with the USB 1.1 specification. The interface is used for power supply to the board, for flashing applications to the chip, for communication with the chip using USB 1.1 protocols, as well as for JTAG debugging.
+| port             | function                                                     |
+| ---------------- | ------------------------------------------------------------ |
+| USB Port         | ：ESP32-S3 full-speed USB OTG interface, compliant with the USB 1.1 specification. The interface is used for power supply to the board, for flashing applications to the chip, for communication with the chip using USB 1.1 protocols, as well as for JTAG debugging. |
+| USB-to-UART Port | A Micro-USB port used for power supply to the board, for flashing applications to the chip, as well as for communication with the chip via the on-board USB-to-UART bridge. |
 
 
 
-**USB-to-UART Port** ：A Micro-USB port used for power supply to the board, for flashing applications to the chip, as well as for communication with the chip via the on-board USB-to-UART bridge.
+To use JTAG, you need to connect the development board to your computer using the **ESP32-S3 USB interface**.
 
 
 
-So,JTAG needs to use USB Port to connect the development board to the computer
-
-
-
-### software preparation
+### Software preparation
 
 1. [VSCode Extension](https://github.com/espressif/vscode-esp-idf-extension/blob/master/docs/tutorial/install.md)
 
 2. [Linux and macOS](https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/get-started/linux-macos-setup.html)
 
-3. Install OpenOCD
+   
 
-   If you have already set up ESP-IDF with CMake build system according to the [Getting Started Guide](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html), then OpenOCD is already installed. After [setting up the environment](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/linux-macos-setup.html#get-started-set-up-env) in your terminal, you should be able to run OpenOCD. Check this by executing the following command:
+### JTAG(Vscode setting)
 
-   ```shell
-   	openocd --version
+#### (Optional) Add folder to workspace
+
+Open the folder where the program is located. If there are multiple files, add the file you want to debug to the workspace.（shift + ctrl +p ->  Command Palette... and  add folder to workspace ）
+
+![image-20230607142008324](Report of JTAG.assets/image-20230607142008324-1686122705682-3.png)
+
+#### Set the download port 
+
+Select the port "/dev/ttyACM0"
+
+![image-20230607142411662](Report of JTAG.assets/image-20230607142411662-1686122710970-5.png)
+
+
+
+#### Set the chip type
+
+**ESP-IDF: Set Espressif device target** : select esp32s3 
+
+ESP-IDF Select flash method : esp32s3 -> via builtin USB-JTAG
+
+![image-20230607142652187](Report of JTAG.assets/image-20230607142652187-1686122717891-7.png)
+
+![image-20230607142802721](Report of JTAG.assets/image-20230607142802721-1686122930287-1.png)
+
+
+
+#### Select the current folder.
+
+![image-20230607142943686](Report of JTAG.assets/image-20230607142943686-1686122724589-9.png)
+
+
+
+#### (Optional)Select the active project.
+
+![image-20230607143149308](Report of JTAG.assets/image-20230607143149308-1686122729427-11.png)
+
+
+
+#### Build and flash
+
+After compiling the file, the terminal displays the following information:
+
+![image-20230607143324601](Report of JTAG.assets/image-20230607143324601-1686122733806-13.png)
+
+
+
+Flash the file to the board. After the Flash device is complete, the terminal displays the following output (if prompted to open OpenOCD, click "Yes"):
+
+![image-20230607143516719](Report of JTAG.assets/image-20230607143516719-1686122738355-15.png)
+
+
+
+## JTAG debug
+
+To further introduce the functionality of JTAG, let's make a slight modification to the example code.
+
+Add the following code to line 83:
+
+```c
+int i = 10;
+```
+
+Add the following code to line85:
+
+```c
+i++
+```
+
+Screenshot of the modified code:
+
+![image-20230607143833779](Report of JTAG.assets/image-20230607143833779-1686122742627-17.png)
+
+
+
+After the code modification is complete, you can initiate JTAG debugging by pressing F5 or clicking on the "Launch" button at the bottom.
+
+![image-20230607144251113](Report of JTAG.assets/image-20230607144251113-1686122746787-19.png)
+
+From the image, it can be seen that JTAG debugging mainly consists of four components: Variables, Watches, Call Stack, and Breakpoints.
+
+
+
+- Variables: The values of variables in the code segment.
+- Watches: Allows manual setting of signals to be monitored.
+- Call Stack: Allows observation of the stack situation in the code.
+- Breakpoints: Allows setting of breakpoints in the code.
+
+
+
+
+
+**TIP：使用命令方法：**
+
+| Command Shortcuts: Functions |                          |
+| ---------------------------- | ------------------------ |
+| F5                           | Start/Continue Debugging |
+| F10                          | Step Over                |
+| F11                          | Step Into                |
+| Shift + F10                  | Step out                 |
+| Shift + F5                   | stop                     |
+
+
+
+If you want to observe print statements while debugging, you can use the monitor device alongside the debugging process.
+
+![image-20230607144808502](Report of JTAG.assets/image-20230607144808502-1686122751892-21.png)
+
+In the code you have modified, you can see that the value of "i" is constantly changing.
+
+
+
+
+
+## JTAG(command)
+
+1. Open  idf.py
+
    ```
-
-   The output should be as follows (although the version may be more recent than listed here):
-
-   ```shell
-   Open On-Chip Debugger 0.11.0
-   Licensed under GNU GPL v2
-   For bug reports, read
-   	http://openocd.org/doc/doxygen/bugs.html
-   
-   ```
-
-
-
-## JTAG debug settings(vscode)：
-
-### vscode settings：
-
-1. **Set the interface:**
-   Select the /dev/ttyACM0 serial port.![](Report of JTAG.assets/usb.png)
-
-2. **Set the chip type.**
-   Select an Espressif target (esp32, esp32s2, etc.) with the **ESP-IDF: Set Espressif device target** command. Default is `esp32` and the one used in this tutorial.
-
-3. **Compile the files and download**
-
-4. **JTAG debug**
-
-   
-
-   
-
-
-
-## JTAG debug example（vs code）：
-
-1. **create a new "blink" project**![](Report of JTAG.assets/example_1.png)
-
-2. **Perform the following configurations at the bottom of the UI**
-
-   ESP-IDF: Set Espressif device target  :  esp32s3
-
-   ESP-IDF: Select Flash Method : JTAG
-
-   ESP-IDF: Select port to use :  usbserial
-
-   
-
-3. **Build project and flash device**![](Report of JTAG.assets/example_2.png)
-
-4. **Begin debug**  **(F5)**
-
-![](Report of JTAG.assets/example_3.png)
-
-
-
-**TIP：command method:**
-
-| command shortcuts | function              |
-| ----------------- | --------------------- |
-| F5                | continue              |
-| F10               | step over             |
-| F11               | single step debugging |
-| Shift + F10       | step out              |
-| Shift + F5        | stop                  |
-
-
-
-
-
-## JTAG debug example (Command )
-
-1. **open idf.py**
-
-   ```shell
-   cd blink
    . $HOME/esp/esp-idf/export.sh
    ```
 
-2. **set ESP32-S3 as the target，build the project**
+   The terminal prints the following information:![image-20230607145111364](Report of JTAG.assets/image-20230607145111364-1686122762782-23.png)
+
+2. Set the chip type，build 
+
+   Set the chip type
 
    ```shell
    idf.py set-target esp32s3
+   ```
+
+   ![image-20230607152645484](Report of JTAG.assets/image-20230607152645484.png)build :
+
+   ```
    idf.py build
    ```
 
-3. **download**
+   ![image-20230607145354357](Report of JTAG.assets/image-20230607145354357-1686122812038-25.png)
 
-   ```
+3. Flash device
+
+   ```c
+   //直接让其自动匹配
    idf.py flash
    ```
 
-4. **gdb**
+   ![image-20230607145444150](Report of JTAG.assets/image-20230607145444150-1686122820073-27.png)
+
+4. Open openocd
+
+   ```
+   idf.py openocd
+   ```
+
+   If it have error as follow:
+   ![image-20230607145556777](Report of JTAG.assets/image-20230607145556777-1686122824052-29.png)
+   use  lsof -i:6666  View related processes and close it，as follow：
+
+   ![image-20230607145700537](Report of JTAG.assets/image-20230607145700537-1686122827874-31.png)
+
+   if you open openocd  normal  ,the terminal prints the following information:
+
+   ![image-20230607145731686](Report of JTAG.assets/image-20230607145731686-1686122831832-33.png)
+
+5. Begin gdb 
 
    ```
    idf.py gdbtui
    ```
 
-   ![](Report of JTAG.assets/unknown_002.png)
+   ![](Report of JTAG.assets/unknown_002-1686122837217-35.png)
 
-- break  num ---------- set breakpoint
-- c              ---------------continue
+GDB related commands and examples as follow:
 
+https://gitlab.espressif.cn:6688/jialin/practice/-/blob/feature/report_lby/others/gdb_learn.md
