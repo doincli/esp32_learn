@@ -156,6 +156,16 @@ In the code you have modified, you can see that the value of "i" is constantly c
 
 
 
+#### Condition breakpoint
+
+![image-20230607180157129](Report of JTAG.assets/image-20230607180157129.png)
+
+
+
+can see the result as follow：
+
+![image-20230607180301002](Report of JTAG.assets/image-20230607180301002.png)
+
 
 
 ## JTAG(command)
