@@ -222,3 +222,5 @@ i++
 这里就正常打断点就好了，然后和正常的GDB调试
 
 相关命令及示例请看：
+
+https://gitlab.espressif.cn:6688/jialin/practice/-/blob/feature/report_lby/others/gdb_learn.md
