@@ -67,7 +67,7 @@ JTAG需要使用**SP32-S3 USB 接口** 连接开发板与电脑
 
 ![image-20230607142652187](JTAG报告.assets/image-20230607142652187-1686122717891-7.png)
 
-![image-20230607142802721](/home/liboyu/桌面/report/jtag_reprot/jtag_report_ch/JTAG报告.assets/image-20230607142802721.png)
+![image-20230607142802721](JTAG报告.assets/image-20230607142802721-1686122930287-1.png)
 
 
 
