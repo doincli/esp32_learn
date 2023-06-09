@@ -232,6 +232,14 @@ esp sysview start file://pro-cpu.SVDat file://app-cpu.SVDat
 
 
 
+### 总结：
+
+可以捕获和显示任务调度的信息，包括任务的执行顺序、切换时间等。这有助于分析系统的实时行为。查看资源的利用情况
+
+
+
+
+
 ## 功能四（获取源代码覆盖率）：
 
 ### 场景：
@@ -280,6 +288,6 @@ esp sysview start file://pro-cpu.SVDat file://app-cpu.SVDat
 
 ![image-20230608192155177](apptrace.assets/image-20230608192155177.png)
 
-
+### 总结
 
 个人觉得这个功能随着idf版本的更新已经无法使用了
