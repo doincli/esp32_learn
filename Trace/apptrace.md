@@ -2,7 +2,7 @@
 
 ## 功能简介:
 
-主要功能一共有四个,目前探索了两个
+主要功能一共有四个,目前探索了3个
 
 1. 收集来自特定应用程序的数据。具体请参阅 [特定应用程序的跟踪](https://docs.espressif.com/projects/esp-idf/zh_CN/latest/esp32/api-guides/app_trace.html#app-trace-application-specific-tracing)。
 2. 记录到主机的轻量级日志。具体请参阅 [记录日志到主机](https://docs.espressif.com/projects/esp-idf/zh_CN/latest/esp32/api-guides/app_trace.html#app-trace-logging-to-host)。
@@ -25,7 +25,7 @@ ESP-IDF 中提供了应用层跟踪功能，用于分析应用程序的行为。
 
 ### 场景
 
-用于追踪数据以及相关变量，与ESP_LOGI函数有点相识，要想实现该功能，修改修改用户程序调用相应的API
+用于追踪数据以及相关变量，与ESP_LOGI函数有点相识，要想实现该功能，需要修改用户程序调用相应的API
 
 
 
@@ -104,7 +104,7 @@ void app_main(void)
 
 ### 总结
 
-和直接打印相差不大，但是可以有效的提高效率，可以先多次写进缓冲区最后一块传输到主机，比ESP_LOGI每一个字节到要单独传输相比，效率可以有很大的提高
+和直接打印相差不大，但是可以有效的提高效率，可以先多次写进缓冲区最后一块传输到主机，与ESP_LOGI每一个字节到要单独传输相比，效率可以有很大的提高
 
 
 

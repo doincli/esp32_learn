@@ -534,3 +534,26 @@ git tag -d v0.1
 ```shell
 git push origin:refs/tags/v0.1
 ```
+
+
+
+## 重新拉的方法
+
+1.新建git
+
+```
+git init
+```
+
+2.关联远程仓库
+
+```
+git remote add origin + url
+```
+
+3.拉分支
+
+```
+git pull origin feature:v1
+```
+
