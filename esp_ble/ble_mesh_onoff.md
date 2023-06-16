@@ -291,6 +291,7 @@ static esp_ble_mesh_gen_onoff_srv_t onoff_server_2 = {
 
 1. 这种方案由于修改状态需要很长的时间，大概10s左右，主要是客户端的配置需要时间，这个参数是回调函数的参数，是通过驱动进行修改的，不知道怎么配置快一点
 2. 如果服务端的开发板配置三个服务模型，如果链接其中任意一个模型，目前是默认链接第一个，这个参数在内核里面，不知道怎么更改
+3. 没办法触发消息事件，只能触发状态改变事件，就是上面截图里面的ESP_BLE_MESH_GENERIC_SERVER_SET_STATE_EVT事件，SP_BLE_MESH_SENSOR_SERVER_RECV_GET_MSG_EVT 等事件没有触发
 
 
 
