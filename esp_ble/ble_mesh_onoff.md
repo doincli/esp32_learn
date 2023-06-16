@@ -1,3 +1,11 @@
+## 如何确定一个mesh网络
+
+设置好共同的match id，这样配网的时候就可以将id相同的板子配置到一个mesh即可
+
+![image-20230616174806917](ble_mesh_onoff.assets/image-20230616174806917.png)
+
+将需要配网的设备的UID设置成和match ID 一样即可完成一个mesh网络的构建
+
 # 蓝牙开关的配网实验
 
 本文利用两个esp32开发板。一块用作prov 并且注册client模型，第二块板子注册server模型实现开发板上灯的亮灭。
