@@ -38,8 +38,8 @@ void OBD_twai_deinit(void)
     ESP_ERROR_CHECK(twai_stop());
     printf("Driver stopped\n");
 
-//     ESP_ERROR_CHECK(twai_driver_uninstall());
-//     printf("Driver uninstalled\n");
+    ESP_ERROR_CHECK(twai_driver_uninstall());
+    printf("Driver uninstalled\n");
  }
 
 uint32_t OBD_get_engine_speed_val(void)
@@ -53,7 +53,7 @@ uint32_t OBD_get_engine_speed_val(void)
        data[1]:0x01 代表要获取动力相关数据
        data[2]:0x0c 代表发动机转速
     */
-    twai_message_t tx_msg = {.flags = TWAI_MSG_FLAG_NONE, .identifier = MSG_ID, .data_length_code = 8, .data = {0x02, 0x01, 0x0C, 0x00, 0x00, 0x00, 0x00, 0x00}};
+    twai_message_t tx_msg = {.flags = TWAI_MSG_FLAG_NONE, .identifier = MSG_ID, .data_length_code = 8, .data = {0x02, 0x01, 0x0D, 0x00, 0x00, 0x00, 0x00, 0x00}};
     twai_message_t rx_msg;
     printf("step1\n");
     ESP_ERROR_CHECK(twai_transmit(&tx_msg, portMAX_DELAY));
@@ -83,10 +83,14 @@ uint32_t OBD_get_engine_speed_val(void)
     }
 
     // 帧数据段剩余的字节为对应的数据值
+    // for (uint8_t i = 3; i <= data_len_rel; ++i)
+    // {
+    //     engine_speed = engine_speed * 256 + (uint32_t)rx_msg.data[i];
+    // }
     for (uint8_t i = 3; i <= data_len_rel; ++i)
     {
-        engine_speed = engine_speed * 256 + (uint32_t)rx_msg.data[i];
+        engine_speed =  (uint32_t)rx_msg.data[i];
     }
-    // 对于发动机转速而言，需要将获得的值除以4得到实际转速
-    return engine_speed / 4;
+    // 对于发动机转速而言，需要将获得的值OBD_twai_deinit();除以4得到实际转速
+    return engine_speed ;
 }

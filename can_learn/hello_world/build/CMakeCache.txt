@@ -14,9 +14,6 @@
 # EXTERNAL cache entries
 ########################
 
-//No help, variable specified on the command line.
-CCACHE_ENABLE:UNINITIALIZED=0
-
 //Path to a program.
 CMAKE_ADDR2LINE:FILEPATH=/home/liboyu/.espressif/tools/riscv32-esp-elf/esp-2022r1-11.2.0/riscv32-esp-elf/bin/riscv32-esp-elf-addr2line
 
@@ -46,9 +43,11 @@ CMAKE_ASM_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
 //Flags used by the ASM compiler during RELWITHDEBINFO builds.
 CMAKE_ASM_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
 
-//Choose the type of build, options are: None Debug Release RelWithDebInfo
-// MinSizeRel ...
-CMAKE_BUILD_TYPE:STRING=
+//No help, variable specified on the command line.
+CMAKE_BUILD_TYPE:STRING=Debug
+
+//No help, variable specified on the command line.
+CMAKE_CXX_COMPILER:FILEPATH=/usr/bin/g++
 
 //A wrapper around 'ar' adding the appropriate '--plugin' option
 // for the GCC compiler
@@ -72,6 +71,9 @@ CMAKE_CXX_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
 
 //Flags used by the CXX compiler during RELWITHDEBINFO builds.
 CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
+
+//No help, variable specified on the command line.
+CMAKE_C_COMPILER:FILEPATH=/usr/bin/gcc
 
 //A wrapper around 'ar' adding the appropriate '--plugin' option
 // for the GCC compiler
@@ -114,8 +116,8 @@ CMAKE_EXE_LINKER_FLAGS_RELEASE:STRING=
 //Flags used by the linker during RELWITHDEBINFO builds.
 CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 
-//Enable/Disable output of compile commands during generation.
-CMAKE_EXPORT_COMPILE_COMMANDS:BOOL=
+//No help, variable specified on the command line.
+CMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE
 
 //User executables (bin)
 CMAKE_INSTALL_BINDIR:PATH=bin
@@ -505,7 +507,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=81
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
