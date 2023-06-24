@@ -42,11 +42,11 @@ ESP-IDF 中提供了应用层跟踪功能，用于分析应用程序的行为。
 以例程blink举例:
 
 1.创建例程文件
-![image-20230608174209159](apptrace.assets/image-20230608174209159.png)
+![image-20230608174209159](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223307.png)
 
 2.如果想要使用apptrace功能,需要更改设置,打开menuconfig,进行如下修改
 
-![image-20230608174344901](apptrace.assets/image-20230608174344901.png)
+![image-20230608174344901](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223310.png)
 
 3.修改相关程序
 
@@ -94,11 +94,11 @@ void app_main(void)
 
 5.点击apptrace,等待下面出现日志文件
 
-![image-20230608174659218](apptrace.assets/image-20230608174659218.png)
+![image-20230608174659218](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223318.png)
 
 6.打开log文件观察
 
-![image-20230609104241286](apptrace.assets/image-20230609104241286.png)
+![image-20230609104241286](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223321.png)
 
 
 
@@ -119,11 +119,11 @@ void app_main(void)
 以例程blink举例:
 
 1.创建例程文件
-![image-20230608174209159](apptrace.assets/image-20230608174209159.png)
+![image-20230608174209159](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223324.png)
 
 2.如果想要使用apptrace功能,需要更改设置,打开menuconfig,进行如下修改
 
-![image-20230608174344901](apptrace.assets/image-20230608174344901.png)
+![image-20230608174344901](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223326.png)
 
 3.添加相应的api函数,将main函数修改如下:
 
@@ -177,11 +177,11 @@ void app_main(void)
 
 5.点击apptrace,等待下面出现日志文件
 
-![image-20230608174659218](apptrace.assets/image-20230608174659218.png)
+![image-20230608174659218](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223328.png)
 
 6.打开日志文件,观察检测的内容
 
-![image-20230608174726888](apptrace.assets/image-20230608174726888.png)
+![image-20230608174726888](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223329.png)
 
 这样即可跟踪想要观察的数据以及变量.
 
@@ -210,7 +210,7 @@ void app_main(void)
 
 Component config` > `Application Level Tracing` > `FreeRTOS SystemView Tracing
 
-![image-20230609113931986](apptrace.assets/image-20230609113931986.png)
+![image-20230609113931986](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223332.png)
 
 3.编译下载，打开openocd
 
@@ -220,15 +220,15 @@ Component config` > `Application Level Tracing` > `FreeRTOS SystemView Tracing
 esp sysview start file://pro-cpu.SVDat file://app-cpu.SVDat
 ```
 
-![image-20230609114158866](apptrace.assets/image-20230609114158866.png)
+![image-20230609114158866](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223333.png)
 
 5.下载systemview软件并且打开生成的svdat 文件
 
-![image-20230609114311222](apptrace.assets/image-20230609114311222.png)
+![image-20230609114311222](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223335.png)
 
 可以看出CPU在各个时间段的工作状态以及相关的外设占用情况
 
-![image-20230609114334632](apptrace.assets/image-20230609114334632.png)
+![image-20230609114334632](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223336.png)
 
 
 
@@ -252,15 +252,15 @@ esp sysview start file://pro-cpu.SVDat file://app-cpu.SVDat
 
 1.新建一个例程
 
-![image-20230608181840646](apptrace.assets/image-20230608181840646.png)
+![image-20230608181840646](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223338.png)
 
 2.开启三个配置
 
-![image-20230608182045675](apptrace.assets/image-20230608182045675.png)
+![image-20230608182045675](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223340.png)
 
-![image-20230608182114387](apptrace.assets/image-20230608182114387.png)
+![image-20230608182114387](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223341.png)
 
-![image-20230608182126849](apptrace.assets/image-20230608182126849.png)
+![image-20230608182126849](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223343.png)
 
 3.正常编译下载
 
@@ -268,7 +268,7 @@ esp sysview start file://pro-cpu.SVDat file://app-cpu.SVDat
 
 5.打开一个新的终端  输入telnet localhost 4444  然后输入esp gcov dump
 
-![image-20230608192027048](apptrace.assets/image-20230608192027048.png)
+![image-20230608192027048](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223344.png)
 
 6.打开命令面板输入**ESP-IDF: Add Editor coverage**
 
@@ -276,17 +276,17 @@ esp sysview start file://pro-cpu.SVDat file://app-cpu.SVDat
 
 我的：
 
-![image-20230608192112917](apptrace.assets/image-20230608192112917.png)
+![image-20230608192112917](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223345.png)
 
 正常的：
 
-![image-20230608192128891](apptrace.assets/image-20230608192128891.png)
+![image-20230608192128891](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223347.png)
 
 7.输入**ESP-IDF: Get HTML Coverage Report** 
 
 此处结果正确，上一处结果错误
 
-![image-20230608192155177](apptrace.assets/image-20230608192155177.png)
+![image-20230608192155177](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223349.png)
 
 ### 总结
 

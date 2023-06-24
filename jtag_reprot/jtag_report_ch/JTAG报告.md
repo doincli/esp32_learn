@@ -18,7 +18,7 @@
 
 该开发板有两个USB 接口，其中一个为USB Port，另一个为USB-to-UART Port
 
-![ESP32-S3-DevKitC-1 - 正面](JTAG报告.assets/ESP32-S3-DevKitC-1_v2-annotated-photo-1686122700062-1.png)
+![ESP32-S3-DevKitC-1 - 正面](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223133.png)
 
 USB Port（USB 接口）：ESP32-S3 USB OTG 接口，支持全速 USB 1.1 标准。ESP32-S3 USB 接口可用作开发板的供电接口，可烧录固件至芯片，可通过 USB 协议与芯片通信，也可用于 JTAG 调试。
 
@@ -51,13 +51,13 @@ JTAG需要使用**SP32-S3 USB 接口** 连接开发板与电脑
 
 打开程序所在的文件夹，当有多个文件的时候，将想要调试的文件添加到工作区，（shift + ctrl +p 打开命令面板输入 add folder to workspace 添加文件）
 
-![image-20230607142008324](JTAG报告.assets/image-20230607142008324-1686122705682-3.png)
+![image-20230607142008324](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223138.png)
 
 #### 设置下载的端口：
 
 选择/dev/ttyACM0接口
 
-![image-20230607142411662](JTAG报告.assets/image-20230607142411662-1686122710970-5.png)
+![image-20230607142411662](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223142.png)
 
 
 
@@ -65,21 +65,21 @@ JTAG需要使用**SP32-S3 USB 接口** 连接开发板与电脑
 
 选择芯片类型(esp32s3)以及下载方式(USB-JTAG))
 
-![image-20230607142652187](JTAG报告.assets/image-20230607142652187-1686122717891-7.png)
+![image-20230607142652187](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223145.png)
 
-![image-20230607142802721](JTAG报告.assets/image-20230607142802721-1686122930287-1.png)
+![image-20230607142802721](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223147.png)
 
 
 
 #### 选择当前文件夹
 
-![image-20230607142943686](JTAG报告.assets/image-20230607142943686-1686122724589-9.png)
+![image-20230607142943686](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223148.png)
 
 
 
 #### 选择活动的project
 
-![image-20230607143149308](JTAG报告.assets/image-20230607143149308-1686122729427-11.png)
+![image-20230607143149308](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223150.png)
 
 
 
@@ -87,13 +87,13 @@ JTAG需要使用**SP32-S3 USB 接口** 连接开发板与电脑
 
 编译文件，编译完毕后终端打印信息如下：
 
-![image-20230607143324601](JTAG报告.assets/image-20230607143324601-1686122733806-13.png)
+![image-20230607143324601](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223151.png)
 
 
 
 下载文件到板子上，下载后的终端输出信息如下（如果提示打开openocd 点击yes）：
 
-![image-20230607143516719](JTAG报告.assets/image-20230607143516719-1686122738355-15.png)
+![image-20230607143516719](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223153.png)
 
 
 
@@ -115,13 +115,13 @@ i++
 
 修改后的代码截图：
 
-![image-20230607143833779](JTAG报告.assets/image-20230607143833779-1686122742627-17.png)
+![image-20230607143833779](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223155.png)
 
 
 
 代码修改完毕后，按F5或者底部的Launch即可开启Jtag调试
 
-![image-20230607144251113](JTAG报告.assets/image-20230607144251113-1686122746787-19.png)
+![image-20230607144251113](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223156.png)
 
 由图可知，jtag调试主要由四个部分组成，分别是变量，监视，调用堆栈以及断点
 
@@ -152,7 +152,7 @@ i++
 
 监视和调试一块使用  先打开监视窗口 然后F5开始调试，效果如下
 
-![image-20230607144808502](JTAG报告.assets/image-20230607144808502-1686122751892-21.png)
+![image-20230607144808502](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223158.png)
 
 在我们自己修改的代码中，我们可以看到i的值在不断变化
 
@@ -162,15 +162,15 @@ i++
 
 在打断点处，右键后输入相关的条件
 
-![image-20230607180107013](JTAG报告.assets/image-20230607180107013.png)
+![image-20230607180107013](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223200.png)
 
-![image-20230607180157129](JTAG报告.assets/image-20230607180157129.png)
+![image-20230607180157129](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223201.png)
 
 
 
 可以看到结果如下：
 
-![image-20230607180301002](JTAG报告.assets/image-20230607180301002.png)
+![image-20230607180301002](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223203.png)
 
 
 
@@ -182,7 +182,7 @@ i++
    . $HOME/esp/esp-idf/export.sh
    ```
 
-   终端打印如下信息：![image-20230607145111364](JTAG报告.assets/image-20230607145111364-1686122762782-23.png)
+   终端打印如下信息：![image-20230607145111364](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223205.png)
 
 2. 设置相关芯片，编译相关文件 然后下载进去
 
@@ -192,13 +192,13 @@ i++
    idf.py set-target esp32s3
    ```
 
-   ![image-20230607152645484](JTAG报告.assets/image-20230607152645484.png)编译程序：
+   ![image-20230607152645484](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223206.png)编译程序：
 
    ```
    idf.py build
    ```
 
-   ![image-20230607145354357](JTAG报告.assets/image-20230607145354357-1686122812038-25.png)
+   ![image-20230607145354357](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223208.png)
 
 3. 将编译的文件下载进芯片
 
@@ -207,7 +207,7 @@ i++
    idf.py flash
    ```
 
-   ![image-20230607145444150](JTAG报告.assets/image-20230607145444150-1686122820073-27.png)
+   ![image-20230607145444150](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223209.png)
 
 4. 打开openocd
 
@@ -217,14 +217,14 @@ i++
    ```
 
    如果端口占用报错，如图
-   ![image-20230607145556777](JTAG报告.assets/image-20230607145556777-1686122824052-29.png)
+   ![image-20230607145556777](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223211.png)
    输入lsof -i:6666 查看相关进程，并且关闭，如图所示：
 
-   ![image-20230607145700537](JTAG报告.assets/image-20230607145700537-1686122827874-31.png)
+   ![image-20230607145700537](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223213.png)
 
    正确打开openocd后终端输入：
 
-   ![image-20230607145731686](JTAG报告.assets/image-20230607145731686-1686122831832-33.png)
+   ![image-20230607145731686](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223214.png)
 
    如何选择配置文件：
 
@@ -253,7 +253,7 @@ i++
    idf.py gdbtui
    ```
 
-   ![](JTAG报告.assets/unknown_002-1686122837217-35.png)
+   ![](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223216.png)
 
 这里就正常打断点就好了，然后和正常的GDB调试
 

@@ -8,7 +8,7 @@
 
 ### 主流的几种组网方式
 
-![image-20230612173556667](esp_ble.assets/image-20230612173556667.png)
+![image-20230612173556667](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624222907.png)
 
 从上图可以看出，**蓝牙 Mesh 可以支持大规模设备互联，单网接入数量理论无限大**，并且由于蓝牙mesh是基于BLE（低功耗蓝牙），电池续航能力强，由于蓝牙模块的广泛应用，蓝牙拥有易于使用的配置和管理工具，所以**蓝牙mesh相对于其它组网方式具有低功耗、可扩展能力强，容易使用等优点**
 
@@ -582,9 +582,9 @@ static esp_err_t prov_complete(int node_idx, const esp_ble_mesh_octet16_t uuid,
 
 相关的库函数
 
-![image-20230614104239701](esp_ble.assets/image-20230614104239701.png)
+![image-20230614104239701](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624222916.png)
 
-![image-20230614104513423](esp_ble.assets/image-20230614104513423.png)
+![image-20230614104513423](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624222915.png)
 
 
 
@@ -671,7 +671,7 @@ typedef struct {
 
 库函数：
 
-![image-20230614154740697](esp_ble.assets/image-20230614154740697.png)
+![image-20230614154740697](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624222921.png)
 
 
 
@@ -791,9 +791,9 @@ struct ble_mesh_provisioner_set_node_name_comp_param {
     } provisioner_set_node_name_comp;           /*!< Event parameter of ESP_BLE_MESH_PROVISIONER_SET_NODE_NAME_COMP_EVT 
 ```
 
-![image-20230614104846326](esp_ble.assets/image-20230614104846326.png)
+![image-20230614104846326](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624222943.png)
 
-![image-20230614104941165](esp_ble.assets/image-20230614104941165.png)
+![image-20230614104941165](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624222936.png)
 
 
 
@@ -988,7 +988,7 @@ typedef struct {
 } esp_ble_mesh_client_common_param_t;
 ```
 
-![image-20230614105452075](esp_ble.assets/image-20230614105452075.png)
+![image-20230614105452075](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223004.png)
 
 
 
@@ -1193,13 +1193,13 @@ esp_ble_mesh_register_prov_callback(example_ble_mesh_provisioning_cb);
 
 ```
 
-![image-20230614111556442](esp_ble.assets/image-20230614111556442.png)
+![image-20230614111556442](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223007.png)
 
-![image-20230614111626962](esp_ble.assets/image-20230614111626962.png)
+![image-20230614111626962](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223011.png)
 
-![image-20230614111651643](esp_ble.assets/image-20230614111651643.png)
+![image-20230614111651643](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223013.png)
 
-![image-20230614111716568](esp_ble.assets/image-20230614111716568.png)
+![image-20230614111716568](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223015.png)
 
 
 
@@ -1325,9 +1325,9 @@ ESP_BLE_MESH_MODEL_OP_GEN_ONOFF_SET
 
 修改例程，在每一个事件下面打印相关日志，获得的日志如下
 
-![image-20230614181744813](esp_ble.assets/image-20230614181744813.png)
+![image-20230614181744813](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223025.png)
 
-![image-20230614181829970](esp_ble.assets/image-20230614181829970.png)
+![image-20230614181829970](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624223027.png)
 
 
 
