@@ -1,8 +1,10 @@
-# OBD实验
+# esp32 + OBD实验
+
+整体的思路是使用esp32 + obd模拟器 控制can总线实现车况检测
 
 代码在hello_world文件夹中
 
-
+[esp32_learn/obd at master · doincli/esp32_learn · GitHub](https://github.com/doincli/esp32_learn/tree/master/obd)
 
 ## 解决问题
 
@@ -40,7 +42,7 @@ static const twai_timing_config_t t_config_500 = TWAI_TIMING_CONFIG_500KBITS();
 
 利用状态机来实现，轮询查找正确的协议，如果不正确，转移到下一个状态，直到找到正确的协议为止
 
-![image-20230625170054308](README.assets/image-20230625170054308.png)
+![image-20230625170054308](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230625230609.png)
 
 
 
@@ -148,7 +150,7 @@ void app_main(void)
 
 共计使用5个函数，作用如下图
 
-![image-20230625170837943](README.assets/image-20230625170837943.png)
+![image-20230625170837943](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230625230614.png)
 
 
 
@@ -311,4 +313,15 @@ uint32_t OBD_get_engine_speed_val_protocol_29bit(void)
 
 效果如下图所示，当更改协议后，可以实现自动检测，并且读出数据
 
-![image-20230625171541184](README.assets/image-20230625171541184.png)
+![image-20230625171541184](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230625230619.png)
+
+## 未来改进
+
+1. 这是面向过程的，后面封装改成面向对象的
+2. 处理完毕后使用蓝牙mesh 组网  实现板间、手机互传
+
+
+
+讨论的改进黑板笔记
+
+![image-20230625230844475](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230625230847.png)
