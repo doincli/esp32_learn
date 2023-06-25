@@ -2,7 +2,7 @@
 
 设置好共同的match id，这样配网的时候就可以将id相同的板子配置到一个mesh即可
 
-![image-20230616174806917](ble_mesh_onoff.assets/image-20230616174806917.png)
+![image-20230616174806917](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624222751.png)
 
 将需要配网的设备的UID设置成和match ID 一样即可完成一个mesh网络的构建
 
@@ -22,7 +22,7 @@ mesh网络节点直接通过消息来传递信息，而模型就是实现消息�
 
 本文档的代码如下：
 
-https://gitlab.espressif.cn:6688/jialin/practice/-/tree/feature/blue_code_lby?ref_type=heads
+[esp32_learn/ble_mesh_provisioner at blue_code · doincli/esp32_learn · GitHub](https://github.com/doincli/esp32_learn/tree/blue_code/ble_mesh_provisioner)
 
 
 
@@ -273,13 +273,13 @@ static esp_ble_mesh_gen_onoff_srv_t onoff_server_2 = {
 
 客户端截图
 
-![image-20230616165250516](ble_mesh_onoff.assets/image-20230616165250516.png)
+![image-20230616165250516](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624222848.png)
 
 
 
 服务端截图
 
-![image-20230616165302275](ble_mesh_onoff.assets/image-20230616165302275.png)
+![image-20230616165302275](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/20230624222850.png)
 
 从中可以看到事件以及onoff开关的变化
 
