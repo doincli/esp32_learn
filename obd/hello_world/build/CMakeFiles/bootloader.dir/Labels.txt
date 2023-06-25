@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+/home/liboyu/Desktop/hello_world/build/CMakeFiles/bootloader
+/home/liboyu/Desktop/hello_world/build/CMakeFiles/bootloader.rule
+/home/liboyu/Desktop/hello_world/build/CMakeFiles/bootloader-complete.rule
+/home/liboyu/Desktop/hello_world/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+/home/liboyu/Desktop/hello_world/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/home/liboyu/Desktop/hello_world/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/home/liboyu/Desktop/hello_world/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/home/liboyu/Desktop/hello_world/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/home/liboyu/Desktop/hello_world/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/home/liboyu/Desktop/hello_world/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule

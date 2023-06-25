@@ -1,0 +1,6 @@
+{
+    "idf.adapterTargetName": "esp32c3",
+    "idf.port": "/dev/ttyUSB0",
+    "idf.flashType": "UART",
+    "C_Cpp.errorSquiggles": "disabled"
+}
