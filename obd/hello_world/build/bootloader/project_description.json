@@ -1,8 +1,8 @@
 {
     "project_name":       "bootloader",
     "project_path":       "/home/liboyu/esp/esp-idf/components/bootloader/subproject",
-    "build_dir":          "/home/liboyu/Desktop/hello_world/build/bootloader",
-    "config_file":        "/home/liboyu/Desktop/hello_world/sdkconfig",
+    "build_dir":          "/home/liboyu/Desktop/work/report/obd/hello_world/build/bootloader",
+    "config_file":        "/home/liboyu/Desktop/work/report/obd/hello_world/sdkconfig",
     "config_defaults":    "",
     "bootloader_elf":     "",
     "app_elf":            "bootloader.elf",

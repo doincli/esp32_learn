@@ -26,15 +26,19 @@ uint32_t now_speed; //汽车的速度
 
 void app_main(void)
 {
-
+	
     while (1)
     {   
         vTaskDelay(100);
+        
+        //状态机实现轮询探测
         switch (protocol_cur)
         {
         case ISO15765_11bit_500K:
             printf("ISO15765_11bit_500K start\n");
+            //配置这个协议得TWAI总线
             OBD_twai_init_500();
+            //获取车速，获取失败则进入下一个协议继续探测，剩下同理
             now_speed = OBD_get_engine_speed_val_protocol_11bit();
             if (now_speed == -1)
             {

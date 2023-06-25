@@ -112,9 +112,6 @@ uint32_t OBD_get_engine_speed_val_protocol_11bit(void)
     return engine_speed ;
 }
 
-
-
-
 uint32_t OBD_get_engine_speed_val_protocol_29bit(void)
 {
     uint8_t data_len_rel;

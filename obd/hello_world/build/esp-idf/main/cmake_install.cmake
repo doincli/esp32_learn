@@ -1,4 +1,4 @@
-# Install script for directory: /home/liboyu/Desktop/hello_world/main
+# Install script for directory: /home/liboyu/Desktop/work/report/obd/hello_world/main
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
