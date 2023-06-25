@@ -19,3 +19,9 @@ ble_mesh_onoff如何实现两个相互通信
 
 
 PPI_and_emt是关于PPI和乐鑫esp32的ETM技术的对比
+
+
+
+
+
+OBD是支持多种协议到OBD方式代码
