@@ -1,21 +1,49 @@
-# i2c读写实验
+# i2c实验
+
+## 整体思路
+
+主机发送读请求，从机发送数据
 
 
 
-使用的esp32c3
+目前从机发送的数据是
+
+00 01 02 03 04 05 06 07 08 09 0a 0b 0c 0d 0e 0f 
 
 
 
-从机SCL 4   SDA 5
-
-主机 SCL 6 SDA 5
-
-从机的地址是0x23
+主机接收到的数据在变化？？？
 
 
 
+## 目前问题
+
+主机接收到的数据会少一个字节
 
 
-API 地址
 
-https://docs.espressif.com/projects/esp-idf/zh_CN/latest/esp32c3/api-reference/peripherals/i2c.html#i2c-api-slave-mode
+如图：
+
+首先是从机的发送端，如图所示
+
+![image-20230714163705023](https://image-1302263000.cos.ap-nanjing.myqcloud.com/img/image-20230714163705023.png)
+
+
+
+然后说主机的接收端，如图所示
+
+![image-20230714163801690](https://image-1302263000.cos.ap-nanjing.myqcloud.com/img/image-20230714163801690.png)
+
+
+
+观察主机接收的数据，第一帧是00 01 02 03 04 05 06 07 08 09 0a 0b 0c 0d 0e 0f 没有问题
+
+但是第二祯数据0丢失了  数据1跑到了最前面  后面又读取到了数据0
+
+第三祯数据1丢失了，数据2跑到最前面，最后又读到了数据1
+
+
+
+我理想的情况应该是每一帧收到的都是
+
+00 01 02 03 04 05 06 07 08 09 0a 0b 0c 0d 0e 0f 
