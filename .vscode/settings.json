@@ -1,9 +1,0 @@
-{
-  "C_Cpp.intelliSenseEngine": "default",
-  "idf.port": "/dev/ttyUSB0",
-  "idf.adapterTargetName": "esp32c6",
-  "idf.openOcdConfigs": [
-    "board/esp32c6-ftdi.cfg"
-  ],
-  "idf.flashType": "UART"
-}
