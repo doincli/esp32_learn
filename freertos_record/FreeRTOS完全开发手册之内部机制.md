@@ -2,7 +2,7 @@
 
 ## 资料下载
 
-![image-20211211082918357](pic/pre/04_download.png)
+![image-20211211082918357](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/04_download.png)
 
 ## 课程介绍
 
@@ -29,7 +29,7 @@ FreeRTOS的任务管理与调度、任务间通信(消息队列)、任务间同�
 
 #### 1.1.1 用人来类比单片机程序和RTOS
 
-![](pic/pre/01_mother_do_jobs.png)
+![](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/01_mother_do_jobs.png)
 
 妈妈要一边给小孩喂饭，一边加班跟同事微信交流，怎么办？
 
@@ -117,7 +117,7 @@ void main()
 
 
 
-![image-20210712065106008](pic/pre/02_program_with_rtos.png)
+![image-20210712065106008](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/02_program_with_rtos.png)
 
 
 
@@ -151,7 +151,7 @@ ARM芯片属于精简指令集计算机(RISC：Reduced Instruction Set Computor)
 
 比如对于a=a+b这样的算式，需要经过下面4个步骤才可以实现：
 
-![image-20211211070259111](pic/arm/01_cpu_ram.png)
+![image-20211211070259111](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/01_cpu_ram.png)
 
 细看这几个步骤，有些疑问：
 
@@ -163,7 +163,7 @@ ARM芯片属于精简指令集计算机(RISC：Reduced Instruction Set Computor)
 
 我们需要深入ARM处理器的内部。简单概括如下，我们先忽略各种CPU模式(系统模式、用户模式等等)。
 
-![image-20211211070449003](pic/arm/02_cpu_registers.png)
+![image-20211211070449003](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/02_cpu_registers.png)
 
 CPU运行时，先去取得指令，再执行指令：
 
@@ -179,7 +179,7 @@ CPU运行时，先去取得指令，再执行指令：
 
 CPU内部有r0到r15寄存器，这些寄存器有别名(下图来自[百度文库](https://wenku.baidu.com/view/2e9d9c7e941ea76e58fa04ef.html))：
 
-![image-20211211072941967](pic/arm/03_cpu_reg_names.png)
+![image-20211211072941967](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/03_cpu_reg_names.png)
 
 
 
@@ -302,7 +302,7 @@ int main()
 
 ## 2. 创建任务的函数
 
-![image-20220115073423273](pic/task/01_task_create_example.png)
+![image-20220115073423273](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/01_task_create_example.png)
 
 ### 2.1 参数解析
 
@@ -441,11 +441,13 @@ xTaskCreate
 
 ## 3. 任务的调度机制(核心是链表)
 
+![image-20230801201659795](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/image-20230801201659795.png)
+
 ### 3.1 使用链表来管理任务
 
 有很多任务都想运行，优先级各不相同，怎么管理它们？
 
-![image-20220115074535364](pic/task/02_freertos_task_list.png)
+![image-20220115074535364](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/02_freertos_task_list.png)
 
 每个优先级，都有一个就绪链表：pxReadyTasksLists[优先级]，
 
@@ -465,7 +467,7 @@ xTaskCreate
 
 最高优先级的ready list里最后一个创建的任务：
 
-![image-20220115075019776](pic/task/03_freertos_first_task.png)
+![image-20220115075019776](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/03_freertos_first_task.png)
 
 
 
@@ -473,7 +475,7 @@ xTaskCreate
 
 最高优先级的ready list里的第1个任务永远可以即刻执行：
 
-![image-20220115075511170](pic/task/04_freertos_get_highest_task.png)
+![image-20220115075511170](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/04_freertos_get_highest_task.png)
 
 
 
@@ -490,7 +492,7 @@ FreeRTOS的任务轮转时：每个任务运行一个Tick。
 
 #### 3.5.1 任务状态切换图
 
-![](pic/task/13_full_task_state_machine.png)
+![](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/13_full_task_state_machine.png)
 
 #### 3.5.2 核心：链表
 
@@ -498,7 +500,7 @@ FreeRTOS的任务轮转时：每个任务运行一个Tick。
 
 ## 4. 消息队列(queue)
 
-![](pic/queue/02_queue.png)
+![](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/02_queue.png)
 
 
 
@@ -510,7 +512,7 @@ FreeRTOS的任务轮转时：每个任务运行一个Tick。
 
 示例：`FreeRTOS_08_queue`
 
-![image-20220115080857803](pic/queue/04_enter_critical.png)
+![image-20220115080857803](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/04_enter_critical.png)
 
 #### 4.1.2 怎么传递数据
 
@@ -527,7 +529,7 @@ FreeRTOS的任务轮转时：每个任务运行一个Tick。
 * 写队列不成功而挂起
 * 读队列不成功而挂起
 
-![image-20220115081434247](pic/queue/05_queue_list.png)
+![image-20220115081434247](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/05_queue_list.png)
 
 
 
@@ -559,18 +561,24 @@ xQueueSendToBack
   * 任务写队列不成功时，它会被挂起：从ready list移到delayed list中
   * 在delayed list中，按照"超时时间"排序
   * 系统Tick中断不断发生，在Tick中断里判断delayed list中的任务时间到没？时间到后就唤醒它
-    ![image-20220115083023870](pic/task/14_queue_timeout.png)
+    ![image-20220115083023870](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/14_queue_timeout.png)
 
 
 
 * 别的任务读队列:
-  ![image-20220115083303252](pic/task/15_wakeup_task_for_queue.png)
+  ![image-20220115083303252](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/15_wakeup_task_for_queue.png)
 
 
+
+<img src="https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/image-20230802112327615.png" alt="image-20230802112327615" style="zoom:150%;" />
+
+
+
+![image-20230802112420682](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/image-20230802112420682.png)
 
 ## 5. 信号量(semaphore)
 
-![](pic/semaphore/01_semaphore_usage.png)
+![](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/01_semaphore_usage.png)
 
 
 
@@ -582,9 +590,13 @@ xQueueSendToBack
 
 
 
+![image-20230802201352681](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/image-20230802201352681.png)
+
+![image-20230802201509496](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/image-20230802201509496.png)
+
 ## 6. 互斥量(mutex)
 
-![image-20220115084012905](pic/mutex/01_mutex_example.png)
+![image-20220115084012905](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/01_mutex_example.png)
 
 
 
@@ -594,7 +606,7 @@ xQueueSendToBack
 
 互斥量实现了优先级继承。
 
-
+![image-20230802204439683](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/image-20230802204439683.png)
 
 
 
@@ -618,13 +630,13 @@ xQueueSendToBack
 
 在FreeRTOS中，可以使用事件组(event group)来解决这些问题。
 
-![image-20220115084249887](pic/evnet_group/01_event_group_example.png)
+![image-20220115084249887](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/01_event_group_example.png)
 
 
 
 ### 7.1 核心是：关调度器、位操作、链表
 
-![image-20220115084647032](pic/evnet_group/02_event_group_struct.png)
+![image-20220115084647032](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/02_event_group_struct.png)
 
 #### 7.1.1 怎么互斥访问数据
 
@@ -632,28 +644,36 @@ xQueueSendToBack
 
 示例：`FreeRTOS_20_event_group_wait_multi_events`
 
-![image-20220115084828616](pic/evnet_group/03_event_group_suspendall.png)
+![image-20220115084828616](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/03_event_group_suspendall.png)
+
+![image-20230803170922917](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/image-20230803170922917.png)
 
 
+
+![image-20230804154103988](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/image-20230804154103988.png)
+
+
+
+![image-20230803171943118](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/image-20230803171943118.png)
 
 #### 7.1.2 位操作
 
 * 设置位：
-  ![image-20220115130744356](pic/evnet_group/04_set_bits.png)
+  ![image-20220115130744356](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/04_set_bits.png)
 
 
 
 * 等待位
-  ![image-20220115130955806](pic/evnet_group/05_wait_bits.png)
+  ![image-20220115130955806](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/05_wait_bits.png)
 
 
 
 #### 7.1.3 链表
 
 * 设置位后，会唤醒"所有符合条件"的任务
-  ![image-20220115133147523](pic/evnet_group/06_wakeup_task_for_event_group.png)
+  ![image-20220115133147523](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/06_wakeup_task_for_event_group.png)
 * 等待位的时候，条件不满足则会休眠
-  ![image-20220115132918706](pic/evnet_group/07_block_for_event_group.png)
+  ![image-20220115132918706](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/07_block_for_event_group.png)
 
 
 
@@ -669,7 +689,7 @@ xQueueSendToBack
 
 
 
-![image-20220115133310665](pic/tasknotification/01_block.png)
+![image-20220115133310665](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/01_block.png)
 
 
 
@@ -683,7 +703,7 @@ xQueueSendToBack
 
 对于任务通知，不需要"创建对象"，因为要操作的对象就在TCB里：
 
-![image-20220115133807283](pic/tasknotification/02_tasknotify_in_tcb.png)
+![image-20220115133807283](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/02_tasknotify_in_tcb.png)
 
 
 
@@ -731,23 +751,29 @@ xQueueSendToBack
 
 ## 9. 定时器
 
+![image-20230804195517182](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/image-20230804195517182.png)
 
+![image-20230804195409479](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/image-20230804195409479.png)
 
+![image-20230804195258071](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/image-20230804195258071.png)
 
+![image-20230804195713320](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/image-20230804195713320.png)
 
 ## 10. 中断
 
 ### 10.1 两套API
 
+![image-20230804203428988](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/image-20230804203428988.png)
 
+![image-20230804203503552](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/image-20230804203503552.png)
 
 ### 10.2 两类中断
 
-
+![image-20230804203537762](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/image-20230804203537762.png)
 
 ### 10.3 优先级
 
-
+![image-20230804203837336](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/image-20230804203837336.png)
 
 ## 11. 临界资源访问方法
 
@@ -772,6 +798,79 @@ vTaskSuspendAll();
 
 
 
+
+
+
+## FreeRTOS的链表代码分析
+
+* 代码
+  ![image-20220324103400344](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/17_freertos_list_src.png)
+
+### 1. 结构体
+
+#### 1.1 链表
+
+![image-20220321023757664](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/08_freertos_list_struct.png)
+
+* uxNumberOfItems：链表中有多少个item
+* pxIndex：指向当前正在使用的item，这个pxIndex被用来遍历链表
+
+
+
+#### 1.2 链表项
+
+![image-20220321023853952](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/09_freertos_list_item_struct.png)
+
+* pvOwner：包含ITEM的结构体
+* pxContainer：链表
+
+![image-20230804212422059](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/image-20230804212422059.png)
+
+### 2. 链表示意图
+
+![image-20220321185613356](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/14_freertos_list_topo.png)
+
+在上图中，链表中元素是顺序是：item1、item2、item3、xListEnd。
+
+list中有一个pxIndex，指向当前真在使用的item。链表的遍历过程如下：
+
+* pxIndex初始时指向xListEnd
+* 要取出第一个元素时，pxIndex就会指向item1
+* 再取出下一个元素时，pxIndex就会指向item2
+* 再取出下一个元素时，pxIndex就会指向item3
+* 再取出下一个元素时，pxIndex就会指向xListEnd
+* 发现它是xListEnd时，继续去下一个元素，pxIndex就会指向item1
+
+
+
+### 3. 链表操作函数
+
+#### 3.1 初始化函数
+
+![image-20220321190616256](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/15_list_init.png)
+
+List_t中有一个Item: xListEnd，初始化链表后，结果如下：
+
+* uxNumberOfItems等于0，表示链表尾空，链表项的数量为0
+* pxIndex指向xListEnd
+* xListEnd中的pxNext、pxPrevious指向xListEnd
+* xListEnd中的xItemValue等于portMAX_DELAY
+
+![image-20220321191127879](https://ayu-990121-1302263000.cos.ap-nanjing.myqcloud.com/makedown/16_list_init_result.png)
+
+
+
+#### 3.2 插入链表尾部
+
+
+
+
+
+#### 3.3 按序插入链表
+
+
+
+#### 3.4 在链表中删除项
 
 
 
